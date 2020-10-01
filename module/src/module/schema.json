@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "properties": {
+    "path": {
+      "description": "The path to create the module.",
+      "type": "string",
+      "format": "path",
+      "visible": false
+    },
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "name": {
+      "type": "string",
+      "description": "Custom module name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Que nome você gostaria de dar pro seu módulo?"
+    }
+  }
+}

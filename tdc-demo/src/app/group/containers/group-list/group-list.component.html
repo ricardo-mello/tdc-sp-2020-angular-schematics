@@ -1,0 +1,40 @@
+<po-page-default
+  [p-title]="'Groups' | transloco"
+  [p-breadcrumb]="breadcrumb"
+  [p-actions]="[{ label: 'Add', url: '/groups/create' }]"
+>
+  <div class="po-row po-p-0">
+    <div class="po-md-12 po-p-0">
+        <po-table
+          [p-columns]="columns"
+          [p-items]="filteredGroups"
+          [p-actions]="tableActions"
+          [p-loading]="!loaded"
+        ></po-table>
+    </div>
+  </div>
+
+  <po-loading-overlay
+    *ngIf="loading"
+    t-screen-lock="true"
+  ></po-loading-overlay>
+</po-page-default>
+
+<po-modal
+  #deleteModal
+  [p-title]="'Delete {item}' | transloco: { item: 'Group' | transloco }"
+  [p-primary-action]="modalActions?.primary"
+  [p-secondary-action]="modalActions?.secondary"
+>
+  {{ 'Are you sure you want to exclude the group?' | transloco }}
+  {{ 'This action cannot be undone.' | transloco }}
+</po-modal>
+
+<po-modal
+  #duplicateModal
+  [p-title]="'Duplicate {item}' | transloco: { item: 'Group' | transloco }"
+  [p-primary-action]="modalActions?.primary"
+  [p-secondary-action]="modalActions?.secondary"
+>
+  {{ 'Are you sure you want to duplicate the group?' | transloco }}
+</po-modal>

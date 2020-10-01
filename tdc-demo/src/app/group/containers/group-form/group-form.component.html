@@ -1,0 +1,42 @@
+<po-page-default
+  [p-title]="'New Group' | transloco"
+  [p-breadcrumb]="breadcrumb"
+>
+  <form [formGroup]="groupForm">
+    <!-- Form Inputs -->
+      <div class="po-row">
+        <po-input
+          class="po-md-4"
+          formControlName="name"
+          name="name"
+          [p-label]="'Name' | transloco"
+          t-required="true"
+        ></po-input>
+
+        <po-switch
+          class="po-md-1 po-sm-2"
+          name="switch"
+          [p-label]="'Active' | transloco"
+          t-label-off=" "
+          t-label-on=" "
+          formControlName="active"
+        >
+        </po-switch>
+      </div>
+
+    <!-- Submit and cancel buttons -->
+    <div class="po-mt-3 po-pull-right">
+      <po-button
+        class="po-mr-2"
+        [p-label]="'Cancel' | transloco"
+        [routerLink]="['/groups']"
+      ></po-button>
+
+      <po-button
+        [p-label]="'Save' | transloco"
+        t-type="primary"
+        (click)="onSubmit(groupForm)"
+      ></po-button>
+    </div>
+  </form>
+</po-page-default>
